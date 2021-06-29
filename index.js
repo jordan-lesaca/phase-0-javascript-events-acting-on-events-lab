@@ -1,28 +1,58 @@
-const dodger = document.getElementById("dodger"); 
+// const dodger = document.getElementById("dodger"); 
 
-function moveDodgerLeft() {
-    const leftNumbers = dodger.style.left.replace("px", "");
-    const left = parseInt(leftNumbers, 10);
+// function moveDodgerLeft() {
+//     const leftNumbers = dodger.style.left.replace("px", "");
+//     const left = parseInt(leftNumbers, 10);
   
-    if (left > 0) {
-      dodger.style.left = `${left - 1}px`;
-    }
-  } 
+//     if (left > 0) {
+//       dodger.style.left = `${left - 1}px`;
+//     }
+//   } 
 
-  document.addEventListener("keydown", function(e) {
-    if (e.key === "ArrowLeft") {
-      moveDodgerLeft();
-    }
-    if (e.key === "ArrowRight"){
-        moveDodgerRight();
-    }
-  }); 
+//   document.addEventListener("keydown", function(e) {
+//     if (e.key === "ArrowLeft") {
+//       moveDodgerLeft();
+//     }
+//     if (e.key === "ArrowRight"){
+//         moveDodgerRight();
+//     }
+//   }); 
   
-  function moveDodgerRight(){
-      const leftNumbers = dodger.style.left.replace("px", "");
-      if (leftNumbers < 360){
-          let left = parseInt(leftNumbers, 10);
+//   function moveDodgerRight(){
+//       const leftNumbers = dodger.style.left.replace("px", "");
+//       if (leftNumbers < 360){
+//           let left = parseInt(leftNumbers, 10);
 
-          dodger.style.left = `${left + 1}px`;
-      }
+//           dodger.style.left = `${left + 1}px`;
+//       }
+//   }
+
+const dodger = document.getElementById("dodger");
+
+function moveDodgerLeft(){
+  const leftNumbers = dodger.style.left.replace("px", "");
+  let left = parseInt(leftNumbers, 10)
+
+  if (left > 0){
+    dodger.style.left = `${left - 1}px`
   }
+}
+
+function moveDodgerRight(){
+  const rightNumbers = dodger.style.left.replace("px", "")
+  let left = parseInt(rightNumbers, 10)
+
+  if (left < 360){
+    dodger.style.left = `${left + 1}px`
+  }
+}
+
+document.addEventListener("keydown", function(e){
+  
+  if (e.key === "ArrowLeft"){
+    moveDodgerLeft();
+  }
+  else if (e.key === "ArrowRight"){
+    moveDodgerRight();
+  }
+})
